@@ -38,7 +38,8 @@ int main()
 	b[0].waiting_time = 0;
 	for (int i = 1; i < n; ++i)
 	{
-		b[i].waiting_time = b[i - 1].waiting_time + b[i - 1].brust_time ;
+			b[i].waiting_time = (b[i - 1].waiting_time + b[i - 1].brust_time)-a[i-1].arrival_time ;
+		//cout << a[i].arrival_time << "\n\n\n\n\n";
 	}
 	double tot = 0;
 	cout << "\tGant\n";
@@ -46,7 +47,7 @@ int main()
 	loop
 	{
 		 cout << b[i].id << "\t" << b[i].brust_time << "\t" << a[i].arrival_time << "\t"<<b[i].waiting_time<<endl;
-		tot = (b[i].waiting_time+tot)-a[i].arrival_time;
+		tot = (b[i].waiting_time+tot);
 
 	}
 
